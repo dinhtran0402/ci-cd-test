@@ -1,15 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import NodeModulesPolyfillPlugin from "@esbuild-plugins/node-modules-polyfill";
+import { NodeModulesPolyfillPlugin } from "@esbuild-plugins/node-modules-polyfill";
 
 export default defineConfig({
-  plugins: [
-    react(),
-    {
-      ...NodeModulesPolyfillPlugin(),
-      enforce: "pre",
-    },
-  ],
+  plugins: [react()],
   optimizeDeps: {
     esbuildOptions: {
       define: { global: "globalThis" },
